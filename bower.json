@@ -1,0 +1,6 @@
+{
+  "name": "d3-sandbox",
+  "dependencies": {
+    "d3": "~3.4.8"
+  }
+}
