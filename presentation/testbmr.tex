@@ -75,6 +75,30 @@
     \end{lstlisting}
 }
 
+\defverbatim[colored]\lstllll{
+    \begin{lstlisting}
+    svg.append("circle")
+        .attr("cx", d.x)
+        .attr("cy", d.y)
+        .attr("r", 2.5);
+    \end{lstlisting}
+}
+
+\defverbatim[colored]\lstlllll{
+    \begin{lstlisting}
+    var svgContainer = d3.select("body").append("svg")
+        .attr("width", 200)
+        .attr("height", 200);
+
+    svg.selectAll("circle")
+        .data(data)
+    .enter().append("circle")
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; })
+        .attr("r", 2.5);
+    \end{lstlisting}
+}
+
 % Creates title page of slide show using above information
 \begin{frame}
   \titlepage
@@ -119,6 +143,31 @@
     Much simpler...
     \frametitle{Manipulating paragraphs with D3}
     \lstlll
+\end{frame}
+
+\subsection{Joins}
+\begin{frame}
+    \frametitle{Appending an element}
+    What if we wanted to create an element in our DOM?
+
+    \lstllll
+\end{frame}
+
+\begin{frame}
+    \frametitle{Appending multiple elements}
+    \lstlllll
+\end{frame}
+
+\begin{frame}
+    \frametitle{Understanding data joins}
+    \begin{itemize}
+    \item<1 -> svg.selectAll('circle') returns an empty selection, since
+    the svg container was empty (the parent node).
+    \item<2 -> Selection is joined to each datum in our data. The enter selection holds these placeholders for our data.
+    \item<3 -> The missing elements (circle) are added to the SVG container
+    by calling selection.append on the enter selection, which appends a new
+    circle for each data point to the SVG container. 
+    \end{itemize}
 \end{frame}
 
 \section{Understanding ImpactJS Game Loop}
