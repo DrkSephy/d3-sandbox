@@ -31,7 +31,7 @@
         .enter().append('div')
             .transition()
             .style('width', function(d) { return x(d) + 'px'; })
-            //.transition()
+            .transition()
             //.style("color", "red")
             .text(function(d) { return d; });
 </script>
