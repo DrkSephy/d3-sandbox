@@ -16,17 +16,23 @@
 <div class='chart'</div>
 <script src='http://d3js.org/d3.v3.min.js'></script>
 <script>
+    // Our data
     var data = [4, 8, 15, 16, 23, 42];
 
+    // Use a scale to automatically size our bars
     var x = d3.scale.linear()
         .domain([0, d3.max(data)])
         .range([0, 420]);
 
+    // For each datum, create div element and style it
     d3.select('.chart')
         .selectAll('div')
             .data(data)
         .enter().append('div')
+            .transition()
             .style('width', function(d) { return x(d) + 'px'; })
+            //.transition()
+            //.style("color", "red")
             .text(function(d) { return d; });
 </script>
 </html>
