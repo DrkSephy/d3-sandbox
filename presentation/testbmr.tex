@@ -99,6 +99,31 @@
     \end{lstlisting}
 }
 
+\defverbatim[colored]\lstllllll{
+    \begin{lstlisting}
+    d3.selectAll('.chart')
+        .selectAll('div')
+            .data(data)
+        .enter().append('div')
+            .transition()
+                .style('width', function(d) { return x(d) + 'px'; })
+            .transition()
+            //.style("color", "red")
+    \end{lstlisting}
+}
+
+\defverbatim[colored]\lstlllllll{
+    \begin{lstlisting}
+    d3.selectAll('.chart')
+        .selectAll('div')
+            .data(data)
+        .enter().append('div')
+             .on('mouseover', function(d){
+                console.log(d);
+            })
+    \end{lstlisting}
+}
+
 % Creates title page of slide show using above information
 \begin{frame}
   \titlepage
@@ -170,6 +195,19 @@
     \end{itemize}
 \end{frame}
 
-\section{Understanding ImpactJS Game Loop}
+\subsection{Transitions}
+\begin{frame}
+    \frametitle{Using transitions}
+    Transitions are simply methods to animate changes to the DOM. For instance:
+    \lstllllll
+\end{frame}
+
+\subsection{Interaction}
+\begin{frame}
+    \frametitle{Adding interactivity to your graphs}
+    Many D3 visualizations come with built-in interactivity. One way to achieve your own custom interactions is to use event handlers.
+
+    \lstlllllll
+\end{frame}
 
 \end{document}
