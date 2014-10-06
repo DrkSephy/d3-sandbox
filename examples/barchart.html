@@ -29,6 +29,9 @@
         .selectAll('div')
             .data(data)
         .enter().append('div')
+            // .on('mouseover', function(d){
+            //    console.log(d);
+            // })
             .transition()
             .style('width', function(d) { return x(d) + 'px'; })
             .transition()
