@@ -125,7 +125,7 @@
 
 \section[Outline]{}
 
-\section{Introduction to D3}
+\section{Diving into D3}
 
 \begin{frame}
     \frametitle{Scales}
@@ -135,7 +135,7 @@
 \end{frame}
 
 
-\subsection{Power of D3}
+\subsection{Scales}
 
 \begin{frame}
   \frametitle{Items and Pixels}   % Insert frame title between curly braces
@@ -155,7 +155,7 @@
   new value between 0 and 1, based on the possible minimum and maximum values. For example, 
   365 days in a year, day 310 maps to ~0.85. 
   \newline
-  
+
   With linear scales, the input value is normalized according to the domain, and then the 
   normalized value is scaled to the output range. 
 \end{frame}
@@ -163,6 +163,42 @@
 \begin{frame}
   \frametitle{Constructing a Scale}
   \lstll
+\end{frame}
+
+\begin{frame}
+  \frametitle{Other Scales}
+  Apart from Linear Scales, D3 provides the following scales:
+  \begin{itemize}
+  \item<1->sqrt
+  \item<2->pow
+  \item<3->log
+  \item<4->quantize
+  \item<5->ordinal
+  \end{itemize}
+\end{frame}
+
+\subsection{SVG}
+
+\begin{frame}
+    \frametitle{The SVG Element}
+    D3 is most useful when generating and manipulating visuals such as SVG. SVG is more reliable, visually consistent and faster than drawing with divs. 
+    \newline
+    \begin{itemize}
+    \item<1-> Can be included directly within any HTML document
+    \item<2-> Supported by all web browsers except > IE8
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{SVG Shapes}
+  \begin{itemize}
+    \item<1 -> rect
+    \item<2 -> circle
+    \item<3 -> ellipse
+    \item<4 -> line
+    \item<5 -> text
+    \item<6 -> path
+  \end{itemize}
 \end{frame}
 
 
