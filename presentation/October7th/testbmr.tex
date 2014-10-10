@@ -1,0 +1,213 @@
+\documentclass[red]{beamer}
+% Class options include: notes, notesonly, handout, trans,
+%                        hidesubsections, shadesubsections,
+%                        inrow, blue, red, grey, brown
+
+
+% Theme for beamer presentation.
+\usepackage{beamerthemetree} 
+% Other themes include: beamerthemebars, beamerthemelined, 
+%                       beamerthemetree, beamerthemetreebars  
+\usepackage{listings}
+
+\title{D3: Data Driven Documents}    
+\author{David Leonard}                 
+\institute{City College of New York}      
+\date{\today}                   
+
+\begin{document}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break, this},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   extendedchars=true,
+   basicstyle=\scriptsize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+
+% Object code listing
+\defverbatim[colored]\lstI{
+	\begin{lstlisting}
+		var person = {
+			name: David,
+			age: 23,
+			major: Computer Science
+		};
+		
+		person.name; // David
+		person.age; // 23
+		person.major; // Computer Science 
+	\end{lstlisting}
+}
+
+\defverbatim[colored]\lstll{
+    \begin{lstlisting}
+    var paragraphs = document.getElementsByTagName("p");
+    for (var i = 0; i < paragraphs.length; i++) {
+        var paragraph = paragraphs.item(i);
+        paragraph.style.setProperty("color", "white", null);
+    } 
+    \end{lstlisting}
+}
+
+\defverbatim[colored]\lstlll{
+    \begin{lstlisting}
+    d3.selectAll("p").style("color", "white");
+    \end{lstlisting}
+}
+
+\defverbatim[colored]\lstllll{
+    \begin{lstlisting}
+    svg.append("circle")
+        .attr("cx", d.x)
+        .attr("cy", d.y)
+        .attr("r", 2.5);
+    \end{lstlisting}
+}
+
+\defverbatim[colored]\lstlllll{
+    \begin{lstlisting}
+    var svgContainer = d3.select("body").append("svg")
+        .attr("width", 200)
+        .attr("height", 200);
+
+    svg.selectAll("circle")
+        .data(data)
+    .enter().append("circle")
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; })
+        .attr("r", 2.5);
+    \end{lstlisting}
+}
+
+\defverbatim[colored]\lstllllll{
+    \begin{lstlisting}
+    d3.selectAll('.chart')
+        .selectAll('div')
+            .data(data)
+        .enter().append('div')
+            .transition()
+                .style('width', function(d) { return x(d) + 'px'; })
+            .transition()
+            //.style("color", "red")
+    \end{lstlisting}
+}
+
+\defverbatim[colored]\lstlllllll{
+    \begin{lstlisting}
+    d3.selectAll('.chart')
+        .selectAll('div')
+            .data(data)
+        .enter().append('div')
+             .on('mouseover', function(d){
+                console.log(d);
+            })
+    \end{lstlisting}
+}
+
+% Creates title page of slide show using above information
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section[Outline]{}
+
+\section{Introduction to D3}
+
+\begin{frame}
+    \frametitle{What is D3?}
+    D3 is a JavaScript library which allows you to bind arbitrary datasets to 
+    the Document Object Model (DOM) and exposes methods for performing data-driven operations to the document.  
+\end{frame}
+
+
+\subsection{Power of D3}
+
+\begin{frame}
+  \frametitle{Loading Data}   % Insert frame title between curly braces
+  D3 provides numerous ways to introduce data to your objects. 
+  \begin{itemize}
+  \item<1-> Array of values
+  \item<2-> Tab-seperated values
+  \item<3-> Comma-seperated values
+  \item<4-> JSON
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Selectors}
+    Using JavaScripts native API to manipulate the DOM can be tiresome. Libraries such as jQuery provide abstractions to make this easier, and D3 exposes its own methods for working with the DOM. 
+
+\end{frame}
+
+\begin{frame}
+ 	\frametitle{Manipulating paragraphs with JS}
+		\lstll
+\end{frame}
+
+\begin{frame}
+    Much simpler...
+    \frametitle{Manipulating paragraphs with D3}
+    \lstlll
+\end{frame}
+
+\subsection{Joins}
+\begin{frame}
+    \frametitle{Appending an element}
+    What if we wanted to create an element in our DOM?
+
+    \lstllll
+\end{frame}
+
+\begin{frame}
+    \frametitle{Appending multiple elements}
+    \lstlllll
+\end{frame}
+
+\begin{frame}
+    \frametitle{Understanding data joins}
+    \begin{itemize}
+    \item<1 -> svg.selectAll('circle') returns an empty selection, since
+    the svg container was empty (the parent node).
+    \item<2 -> Selection is joined to each datum in our data. The enter selection holds these placeholders for our data.
+    \item<3 -> The missing elements (circle) are added to the SVG container
+    by calling selection.append on the enter selection, which appends a new
+    circle for each data point to the SVG container. 
+    \end{itemize}
+\end{frame}
+
+\subsection{Transitions}
+\begin{frame}
+    \frametitle{Using transitions}
+    Transitions are simply methods to animate changes to the DOM. For instance:
+    \lstllllll
+\end{frame}
+
+\subsection{Interaction}
+\begin{frame}
+    \frametitle{Adding interactivity to your graphs}
+    Many D3 visualizations come with built-in interactivity. One way to achieve your own custom interactions is to use event handlers.
+
+    \lstlllllll
+\end{frame}
+
+\end{document}

@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {2}{Introduction to D3}{2}{0}{1}
+\beamer@subsectionintoc {2}{1}{Power of D3}{3}{0}{1}
+\beamer@subsectionintoc {2}{2}{Joins}{10}{0}{1}
+\beamer@subsectionintoc {2}{3}{Transitions}{15}{0}{1}
+\beamer@subsectionintoc {2}{4}{Interaction}{16}{0}{1}
