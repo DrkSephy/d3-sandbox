@@ -63,60 +63,37 @@
     \end{lstlisting}
 }
 
-\defverbatim[colored]\lstlll{
+\defverbatim[colored]\lstrect{
     \begin{lstlisting}
-    d3.selectAll("p").style("color", "white");
+      <rect x="0" y="0" width="500" height="50"/>
     \end{lstlisting}
 }
 
-\defverbatim[colored]\lstllll{
+\defverbatim[colored]\lstcircle{
     \begin{lstlisting}
-    svg.append("circle")
-        .attr("cx", d.x)
-        .attr("cy", d.y)
-        .attr("r", 2.5);
+      <circle cx="250" cy="25" r="25"/>
     \end{lstlisting}
 }
 
-\defverbatim[colored]\lstlllll{
+\defverbatim[colored]\lstellipse{
     \begin{lstlisting}
-    var svgContainer = d3.select("body").append("svg")
-        .attr("width", 200)
-        .attr("height", 200);
-
-    svg.selectAll("circle")
-        .data(data)
-    .enter().append("circle")
-        .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; })
-        .attr("r", 2.5);
+      <ellipse cx="250" cy="25" rx="100" ry="25"/>
     \end{lstlisting}
 }
 
-\defverbatim[colored]\lstllllll{
+\defverbatim[colored]\lstellipse{
     \begin{lstlisting}
-    d3.selectAll('.chart')
-        .selectAll('div')
-            .data(data)
-        .enter().append('div')
-            .transition()
-                .style('width', function(d) { return x(d) + 'px'; })
-            .transition()
-            //.style("color", "red")
+      <ellipse cx="250" cy="25" rx="100" ry="25"/>
     \end{lstlisting}
 }
 
-\defverbatim[colored]\lstlllllll{
+\defverbatim[colored]\lstline{
     \begin{lstlisting}
-    d3.selectAll('.chart')
-        .selectAll('div')
-            .data(data)
-        .enter().append('div')
-             .on('mouseover', function(d){
-                console.log(d);
-            })
+      <line x1="0" y1="0" x2="500" y2="50" stroke="black"/>
     \end{lstlisting}
 }
+
+
 
 % Creates title page of slide show using above information
 \begin{frame}
@@ -185,7 +162,7 @@
     \newline
     \begin{itemize}
     \item<1-> Can be included directly within any HTML document
-    \item<2-> Supported by all web browsers except > IE8
+    \item<2-> Supported by all web browsers except IE8 or higher
     \end{itemize}
 \end{frame}
 
@@ -199,6 +176,26 @@
     \item<5 -> text
     \item<6 -> path
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{rect}
+  \lstrect
+\end{frame}
+
+\begin{frame}
+  \frametitle{circle}
+  \lstcircle
+\end{frame}
+
+\begin{frame}
+  \frametitle{ellipse}
+  \lstellipse
+\end{frame}
+
+\begin{frame}
+  \frametitle{line}
+  \lstline
 \end{frame}
 
 
