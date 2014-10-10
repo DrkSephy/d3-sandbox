@@ -53,11 +53,13 @@
 
 \defverbatim[colored]\lstll{
     \begin{lstlisting}
-    var paragraphs = document.getElementsByTagName("p");
-    for (var i = 0; i < paragraphs.length; i++) {
-        var paragraph = paragraphs.item(i);
-        paragraph.style.setProperty("color", "white", null);
-    } 
+      var scale = d3.scale.linear()
+                    .domain([100, 500])
+                    .range([10, 350]);
+
+      scale(100); // Returns 10
+      scale(300); // Returns 180
+      scale(500); // Returns 350
     \end{lstlisting}
 }
 
@@ -147,7 +149,21 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Linear Scales}
+  Linear scales is nothing more than normalization, in which we map a numeric value to a 
+  new value between 0 and 1, based on the possible minimum and maximum values. For example, 
+  365 days in a year, day 310 maps to ~0.85. 
+  \newline
+  
+  With linear scales, the input value is normalized according to the domain, and then the 
+  normalized value is scaled to the output range. 
+\end{frame}
 
+\begin{frame}
+  \frametitle{Constructing a Scale}
+  \lstll
+\end{frame}
 
 
 \end{document}
