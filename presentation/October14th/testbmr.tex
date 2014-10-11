@@ -133,6 +133,36 @@
     \end{lstlisting}
 }
 
+\defverbatim[colored]\lstexit{
+    \begin{lstlisting}
+    d3.select("body").selectAll("div")
+      .data([4, 8, 15, 16, 23, 42])
+    .enter().append("div")
+      .text(function(d) { return d; });
+    \end{lstlisting}
+}
+
+\defverbatim[colored]\lstexitl{
+    \begin{lstlisting}
+    var div = d3.select("body").selectAll("div")
+    .data([1, 2, 4, 8, 16, 32], function(d) { return d; });
+
+    // Append new data
+    div.enter().append("div")
+      .text(function(d) { return d; });
+
+    // Remove existing elements [15, 23, 42]:
+    div.exit().remove();
+    \end{lstlisting}
+}
+
+\defverbatim[colored]\lstcallback{
+    \begin{lstlisting}
+    $("#btn_1").click(function() {
+      alert("Btn 1 Clicked");
+    });
+    \end{lstlisting}
+}
 
 % Creates title page of slide show using above information
 \begin{frame}
@@ -292,6 +322,50 @@
 
   Note that SVG Path commands are case sensitive. \textbf{Capitalcase} means we are using \textit{absolute positioning} based on the
   SVG viewing window, \textbf{lowercase} means we are using \textit{relative positioning}. 
+\end{frame}
+
+\subsection{D3 Selection Pattern}
+\begin{frame}
+  \frametitle{Update}
+  selection.\textbf{data()}: Joins an array of data to the current selection. Results in the \textit{update} selection, which represents the selected DOM elements that were successfully bound to the specified data elements.
+  \newline
+
+  The \textit{update} method also contains a reference to the \textit{enter} and \textit{exit} selection, used for adding and removing nodes in correspondence with the data.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Enter}
+  selection.\textbf{enter()}: Returns the enter selection - placeholder nodes for each data for which no corresponding existing DOM element was found. Supports the following operators:
+  \begin{itemize}
+  \item<1->append
+  \item<2->insert
+  \item<3->select
+  \item<4->call
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Exit}
+  selection.\textbf{exit()}: Contains existing DOM elements in the current selection for which no data element was found. Exposes the \textbf{remove} operator, which allows the removal of these elements. 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+  \lstexit
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+  \lstexitl
+\end{frame}
+
+\subsection{JavaScript callbacks}
+\begin{frame}
+  \frametitle{Why callbacks?}
+  Callbacks in JavaScript are a pattern which solve the problem of dealing with its asynchronous behavior. Functions in JavaScript are first-class objects, meaning that they can be passed around as arguments to other functions. 
+
+  \lstcallback
 \end{frame}
 
 
