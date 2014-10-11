@@ -121,6 +121,18 @@
     \end{lstlisting}
 }
 
+\defverbatim[colored]\lstsvgtriangle{
+    \begin{lstlisting}
+    <svg width="100" height="100">
+      <path d=" M 10 25
+                L 10 75
+                L 60 75
+                L 10 25"
+                stroke="red" stroke-width="2" fill="none" />
+    </svg>
+    \end{lstlisting}
+}
+
 
 % Creates title page of slide show using above information
 \begin{frame}
@@ -255,6 +267,32 @@
   \lstcreateaxis
 \end{frame}
 
+\subsection{SVG Paths}
+\begin{frame}
+  An SVG path can draw all sorts of shapes - rectangles, circles, ellipses, straight lines, curves and polygons. 
+  \newline
+
+  The shape of an SVG Path element is defined by the attribute \textit{\textbf{d}}, which contains the series of commands and parameters from within the SVG Path Mini-Language. 
+  \newline
+
+  These commands are analogous to a set of instructions for "how to move a pen on paper"
+\end{frame}
+
+\begin{frame}
+  \lstsvgtriangle
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item<1->M 10 25: Put the pen down at (10, 25)
+  \item<2->L 10 75: Draw a line to the point (10, 75) from (10, 25)
+  \item<3->L 60 75: Draw a line to the point (60, 75) from (10, 75)
+  \item<4->L 10 25: Draw a line to the point (10, 25) from (60, 75)
+  \end{itemize}
+
+  Note that SVG Path commands are case sensitive. \textbf{Capitalcase} means we are using \textit{absolute positioning} based on the
+  SVG viewing window, \textbf{lowercase} means we are using \textit{relative positioning}. 
+\end{frame}
 
 
 
