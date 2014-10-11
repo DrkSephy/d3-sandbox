@@ -1,3 +1,0 @@
-\beamer@endinputifotherversion {3.20pt}
-\beamer@sectionintoc {2}{Introduction to D3}{2}{0}{1}
-\beamer@subsectionintoc {2}{1}{Power of D3}{3}{0}{1}
