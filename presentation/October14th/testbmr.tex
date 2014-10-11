@@ -93,6 +93,33 @@
     \end{lstlisting}
 }
 
+\defverbatim[colored]\lstaxis{
+    \begin{lstlisting}
+    var xAxis = d3.svg.axis()
+                    .scale(xScale)
+                    .orient("bottom")
+                    .ticks(5);
+
+    var yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left")
+                    .ticks(5);
+    \end{lstlisting}
+}
+
+\defverbatim[colored]\lstcreateaxis{
+    \begin{lstlisting}
+    svg.append("g")
+        .attr("class", "axis")
+        .attr("transform", "translate(0," + (h - padding) + ")")
+        .call(xAxis);
+
+    svg.append("g")
+        .attr("class", "axis")
+        .attr("transform", "translate(" + padding + ",0)")
+        .call(yAxis);
+    \end{lstlisting}
+}
 
 
 % Creates title page of slide show using above information
@@ -197,6 +224,38 @@
   \frametitle{line}
   \lstline
 \end{frame}
+
+\subsection{Axes}
+
+\begin{frame}
+  \frametitle{Axes}
+  D3 Axes are functions whose parameters we define. When called, it generates the visual elements of the axis, including lines, labels and ticks. 
+  \newline
+
+  Axes are SVG-specific, as they generate SVG elements. They must be applied to either SVG or SVG "group" elements. 
+\end{frame}
+
+\begin{frame}
+  \frametitle{SVG Groups}
+  The 'g' element within SVG stands for the 'group' element. Group elements are invisible, but they allow us to:
+  \begin{itemize}
+  \item<1-> Contain / "group" elements together
+  \item<2-> We can apply transformations to these groups
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Constructing an axis function}
+  \lstaxis
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Usage}
+  \lstcreateaxis
+\end{frame}
+
+
 
 
 \end{document}
