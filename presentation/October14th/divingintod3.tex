@@ -164,6 +164,15 @@
     \end{lstlisting}
 }
 
+\defverbatim[colored]\lstv{
+    \begin{lstlisting}
+    // Voronoi generator function
+    var voronoi = d3.geom.voronoi()
+        .x(function(d) { return d.LONGITUDE; })
+        .y(function(d) { return d.LATITUDE; })
+        .clipExtent([[0, 0], [width, height]]);
+    \end{lstlisting}
+}
 % Creates title page of slide show using above information
 \begin{frame}
   \titlepage
@@ -331,13 +340,16 @@
 
 \subsection{Voronoi Diagrams}
 \begin{frame}
+  \frametitle{What are voronoi diagrams?}
   Voronoi diagrams are a method of dividing space into a set number of regions, based on some input points. For each point, there will be a region containing all points closest to the corresponding input point. 
   \newline
 
-  Voronoi diagrams are useful for creating invisible interactive regions, such as: http://www.pointerpointer.com/. 
+  Voronoi diagrams are useful for creating invisible interactive regions, such as: http://www.pointerpointer.com/ 
 \end{frame}
 
 \begin{frame}
+  \frametitle{Voronoi function}
+  \lstv
 \end{frame}
 
 \subsection{D3 Selection Pattern}
