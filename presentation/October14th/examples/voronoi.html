@@ -68,6 +68,7 @@
           var text = d3.select('body').append('div').attr('class', 'text-tooltip');
 
           // Voronoi generator function
+          // Accessors give points to build voronoi
           var voronoi = d3.geom.voronoi()
               .x(function(d) { return d.LONGITUDE; })
               .y(function(d) { return d.LATITUDE; })
