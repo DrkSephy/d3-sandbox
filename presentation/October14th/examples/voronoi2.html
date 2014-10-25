@@ -68,11 +68,10 @@
           var text = d3.select('body').append('div').attr('class', 'text-tooltip');
 
           // Voronoi generator function
-          // Accessors give points to build voronoi
           var voronoi = d3.geom.voronoi()
               .x(function(d) { return d.LONGITUDE; })
-              .y(function(d) { return d.LATITUDE; });
-          
+              .y(function(d) { return d.LATITUDE; })
+              .clipExtent([[0, 0], [width, height]]);
 
           // Load data
           var node = svg.selectAll('.voronoi-stops')
@@ -80,21 +79,20 @@
             .enter()
             .append('svg')
 
-          node.append('path')
-            .attr('d', function(d) { return 'M' + d.join('L') + 'Z'; })
-            .attr('id', function(d, i) { return i; })
-            .on('mouseover', function(d){
-                text.style('display', 'block')
-                .html("ID: " + d.point.ID + 
-                      "<br>" + "LATITUDE: " + d.point.LATITUDE + 
-                      "<br>" + "LONGITUDE: " + d.point.LONGITUDE + 
-                      "<br>" + "IMAGE: " + d.point.IMAGE);
-                // .html('<img src=img/' + d.point.IMAGE + '>');
-            })
-            .on('mouseout', function(d){
-                text.style('display', 'block')
-                .text('');
-            })  
+           node.append('path')
+             .attr('d', function(d) { return 'M' + d.join('L') + 'Z'; })
+             .on('mouseover', function(d){
+                 text.style('display', 'block')
+                 .html("ID: " + d.point.ID + 
+                       "<br>" + "LATITUDE: " + d.point.LATITUDE + 
+                       "<br>" + "LONGITUDE: " + d.point.LONGITUDE + 
+                       "<br>" + "IMAGE: " + d.point.IMAGE);
+                 // .html('<img src=img/' + d.point.IMAGE + '>');
+             })
+             .on('mouseout', function(d){
+                 text.style('display', 'block')
+                 .text('');
+             }) 
       });
     </script>
 
